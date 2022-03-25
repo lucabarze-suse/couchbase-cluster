@@ -39,3 +39,11 @@ spec:
     - index
     - query
     - search
+  volumeClaimTemplates: 
+  - metadata:
+      name: couchbase 
+    spec:
+      storageClassName: local-path
+      resources: 
+        requests:
+          storage: 1Gi
