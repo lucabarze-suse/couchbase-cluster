@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: cb-example-auth
+  namespace: db
 type: Opaque
 data:
   username: QWRtaW5pc3RyYXRvcg==  # Administrator
@@ -10,14 +11,16 @@ data:
 apiVersion: couchbase.com/v2
 kind: CouchbaseBucket
 metadata:
-  name: default  
+  name: default
+  namespace: db
 spec:
   memoryQuota: 128Mi
 ---
 apiVersion: couchbase.com/v2
 kind: CouchbaseCluster
 metadata:
-  name: cb-example  
+  name: cb-example
+  namespace: db
 spec:
   image: couchbase/server:6.6.2  
   security:
